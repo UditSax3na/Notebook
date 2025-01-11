@@ -1,9 +1,9 @@
-import "@/styles/globals.css";
 export const metadata = {
-  title: "Notebook",
+  title: "Notebook | ",
   description: "Notebook",
 };
-export default function RootLayout({ children }) {
+  
+export default function RootLayout({ children }) { 
   return (
     <html lang="en">
       <body>
@@ -12,3 +12,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+  
