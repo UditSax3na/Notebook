@@ -7,7 +7,7 @@ const ViewPage = () => {
     const LogOut = async () => {
         try{
             const response = await fetch('/api/users/logout', {
-              method: 'DELETE', // HTTP method
+              method: 'POST', // HTTP method
               headers: {
                 'Content-Type': 'application/json', // Specify the content type
               },
@@ -24,9 +24,9 @@ const ViewPage = () => {
     }
   return <>
     <div>
-      hello
+      view page
     </div>
-    <button className='btn mt-3 text-lg' onClick={()=>{LogOut();}}>Login</button>
+    <button className='btn mt-3 text-lg' onClick={()=>{LogOut();}}>logout</button>
 </>
 }
 

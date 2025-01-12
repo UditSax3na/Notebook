@@ -1,3 +1,4 @@
+'use server'
 import GenToken from '@/lib/authtoken';
 import { cookies } from 'next/headers';
 const db = require('better-sqlite3')('notebook.db');
@@ -11,12 +12,12 @@ export async function POST(req) {
             const Cookies = await cookies();
             let token = GenToken();
             db.prepare('INSERT INTO authToken(userid, authToken) VALUES (?,?)').run(result['user_id'], token);
-            Cookies.set('LoginToken', `${token}`, {
-                expires: 1, // Expires in 1 day
-                path: '/api/', // Available site-wide
-                secure: true, // HTTPS only
-                sameSite: 'Lax',
-            });
+            Cookies.set({
+                name: 'LoginToken',
+                value: `${token}`,
+                httpOnly: true,
+                path: '/',
+            })
             return new Response(JSON.stringify({token: token, data: result}),{status:200,headers:{'Content-Type':'application/json'}});
         }else{
             return new Response(JSON.stringify({error:'some issue'},{status:500,headers:{'Content-Type':'application/json'}}));

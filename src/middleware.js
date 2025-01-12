@@ -7,14 +7,13 @@ export async function middleware(req) {
 
     const url = req.nextUrl.clone();
 
-    if (['/login', '/reg', '/PageNotFound'].includes(url.pathname)){
+    if (!token && ['/login', '/reg', '/PageNotFound'].includes(url.pathname)){
         return NextResponse.next();
     }
-
-    if (token && !(['/login', '/reg', '/PageNotFound'].includes(url.pathname))) {
+    if (token) {
         return NextResponse.next();
     }else{
-        return NextResponse.redirect(url.origin+'/PageNotFound');
+        return NextResponse.redirect(url.origin+'/login');
     }
 }
 

@@ -1,14 +1,6 @@
+'use client'
 import "@/styles/globals.css";
-export const metadata = {
-  title: "Notebook",
-  description: "Notebook",
-};
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+import ParentComponent from "@/components/ParentComponent";
+export default function RootLayout({ children }) { 
+  return <><ParentComponent children={children} /></>
 }

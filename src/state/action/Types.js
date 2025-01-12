@@ -1,0 +1,2 @@
+export const SET_DETAILS = 'SET_DETAILS';
+export const UNSET_DETAILS = 'UNSET_DETAILS';

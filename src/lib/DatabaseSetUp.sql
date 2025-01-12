@@ -8,6 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE pages (
     pages_id INTEGER PRIMARY KEY,
+    pageno INTEGER NOT NULL,
     usertoken TEXT REFERENCES users(user_id),
     title TEXT NOT NULL,
     body TEXT NOT NULL
@@ -23,3 +24,8 @@ CREATE TABLE authToken(
     userid TEXT REFERENCES users(user_id),
     authToken TEXT NOT NULL UNIQUE
 );
+-- 
+-- CREATE TABLE settings(
+-- 
+-- 
+-- );

@@ -1,11 +1,10 @@
-import { Store } from "@/state/store.js";
 import { Provider } from "react-redux";
-
 import React from 'react'
+import store from "@/state/store";
 
 const ParentComponent = ({children}) => {
   return <>
-      <Provider store={Store}>
+      <Provider store={store}>
       <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

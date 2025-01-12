@@ -1,7 +1,5 @@
-export const metadata = {
-  title: "Notebook | ",
-  description: "Notebook",
-};
+'use client'
+import "@/styles/globals.css";
   
 export default function RootLayout({ children }) { 
   return (

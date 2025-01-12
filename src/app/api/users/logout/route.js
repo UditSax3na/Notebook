@@ -2,14 +2,14 @@ import { cookies } from 'next/headers';
 const db = require('better-sqlite3')('notebook.db');
 
 // logout api
-export async function DELETE(req) {
+export async function POST(req) {
     const Cookies = await cookies();
     const token = Cookies.get('LoginToken');
-    console.log(token);
+    
     try{
         if (token){
-            db.prepare('DELETE FROM authToken WHERE authtoken=?').run(token);
             Cookies.delete('LoginToken');
+            db.prepare('DELETE FROM authToken WHERE authtoken=?').run(token.value);
             return new Response(JSON.stringify({success: 1}),{status:200,headers:{'Content-Type':'application/json'}});
         }else{
             return new Response(JSON.stringify({success:0},{status:200,headers:{'Content-type':'application/json'}}));
